@@ -1,89 +1,65 @@
-# Project Exam 2
-## Goal
+Project Exam 2
+
+There are two options with this Project Exam. You need to only choose one and please follow the deliveries carefully.
+Goal
+
 To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate's general development capabilities, in addition to visual and technical skills.
+Brief
 
-## Brief
-An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
+For this assignment you have the choice between getting a real world client that you will manage and build a website for, or a case study to make a hotel booking website.
 
-## Requirements
+Whatever project you choose, the final submission must have the following:
 
-> All admin functionality is managed by an existing application. This project only covers the front-end application for the API.
+    A Gantt chart planning the project
+    A style guide
+    An Adobe XD prototype
+    Use a CSS Pre-processor and BEM if not using CSS Modules, Styled Components, etc
+    Use a React.js or Next.js
+    You can use regular JS or TypeScript
+    Please use create-react-app or create-next-app to generate a skeleton project for yourself
+    A fully working website that fulfils the brief
 
-## API
+Hotel Booking Website
 
-The API you are using for this project can be found under Social EndPoints in the [Noroff API documentation](https://noroff-api-docs.netlify.app/).
+A local tourism agency in Bergen is launching a new website called ‘Holidaze’ for visitors to the area to be able to find hotels, B&Bs and guesthouses, and for the accommodation owners to receive enquiries.
 
-### Resources
+The project requires you to create the visitor side of the website where users can search accommodation and make enquiries, as well as the administration side where properties can be added and enquiries managed.
 
-[API Guide](https://noroff-api-docs.netlify.app/social-endpoints/authentication)
-[API Documentation](https://nf-api.onrender.com/docs)
+You will need to create an API to store the data for the establishments, enquiries and contact submissions. You can choose to use WordPress or Strapi as a Headless CMS, but it is very important that the API is deployed and publicly available. Please do not submit any files for your API. Only submit the website you have created.
+Requirements for the Website
+Visitor Side
 
-### User Stories
+    Homepage
+    Search bar typeahead (auto dropdown with hotel names that match what has been typed)
+    A results page with all hotels
+    The hotel specific page which displays all details about the hotel
+    An enquiry page either modal or separate page
+    A contact page (different to enquiry page) which goes to the admin for Holidaze
 
-The client has specified the following requirements in the form of *User Stories*:
-1. A user with a `stud.noroff.no` email may register
-2. A registered user may login
-3. A registered user may update their avatar and banner
-4. A registered user may logout
-5. A registered user may view a list of `Posts`
-6. A registered user may view a list of `Profiles`
-7. A registered user may view a single `Post` by `id`
-8. A registered user may view a single `Profile` by `name`
-9. A registered user may create a `Post`
-10. A registered user may update a `Post` they own
-11. A registered user may delete a `Post` they own
-12. A registered user may create a `Comment` on any `Post`
-13. A registered user may `react` to any `Post` with an emoji
-14. A registered user may `follow` and `unfollow` another `Profile`
+Admin side
 
-### Technical Restrictions
+    Create a login section that makes use of JWT tokens
+    List of enquiries and new enquiries appear when user submits the form on the enquiry page
+    List of messages from contact form
+    The admin can create a new establishment
 
-The company CTO has set the following technical restrictions:
-1. Must use an approved `JavaScript Framework`
-2. Must use an approved `CSS Framework`
-3. Must be hosted on an approved `Static Host`
-4. Must use an approved `Design Application`
-5. Must use an approved `Planning Application`
+Recommended Process
 
-### Required Links
+Week 1 and 2: Planning and Design Week 3 to 6: Coding Week 7: Bug Fixing
+Level 1 Process
 
-The Product Owner has requested links to the following:
-1. A Gantt chart for project timing
-2. A design prototype
-3. A style guide
-4. A kanban project board
-5. A repository link
-6. A hosted application demo link
+    Start by planning out the project.
+    Next begin your research of likely users and browse competitor websites for ideas.
+    Create a style guide
+    Build an Adobe XD prototype (or you can use Sketch or Figma).
+    Start coding.
+    Once you’ve finished development, start looking for bugs and ensure the site functions well on all viewports. Test the code on different devices. Because your API is public, the code shouldn’t rely on a local API.
+    Refactor your code.
+    Ask another student to look over your code and ask them if they can see how it might be better implemented. This is important to get an outside view on your code. Please attach this feedback to your report.
+    Add the login details for your admin side at the top of this README.md file so that it's easy for the marker to spot.
 
-## Approved Resources
-This list covers libraries and services that have been vetted by the company and approved for use.
+Submission
 
-### JavaScript Frameworks
-- React (>16)
-
-### CSS Frameworks
-- Bootstrap (>5)
-- Tailwind (>3)
-- MUI (>5)
-- Styled Components
-- CSS Modules
-
-### Hosting Services
-- GitHub Pages
-- Netlify
-
-### Design Applications
-- Adobe XD
-- Figma
-- Sketch
-
-### Planning Applications
-- Trello
-- GitHub Projects
-
-## Delivery
-Include the required links in the Moodle delivery window using [this template format](delivery-template.html).
-
-All final changes must be merged into the default branch `main` or `master`. Other branches will not be checked.
-
-Ensure that the `readme.md` file describes your project thoroughly, including how to setup and run the project locally and any special instructions for testers.
+End of week 7: Report with link to website or a Github link and feedback from code review, and all files in a compressed ZIP. Login details added to the README.md.
+Resources
+Report template included in the repo.
