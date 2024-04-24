@@ -41,8 +41,14 @@ export default function FetchData() {
     <div>
       {data.map((item) => (
         <div key={item.id}>
-          {/* <img src={item.attributes.MainImage.data.attributes.url} /> */}
-          {/* <p>{item.attributes.MainImage.attributes.provider}</p> */}
+          <img
+            className="w-48 h-48"
+            src={
+              "http://localhost:1337" +
+              item.attributes.MainImage.data.attributes.url
+            }
+          />
+
           <h1 className="text-xl">{item.attributes.Title}</h1>
           <p>{item.attributes.Description}</p>
         </div>
