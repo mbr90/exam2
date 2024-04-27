@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const url = "http://localhost:1337/api/venues?populate=MainImage";
+const apiUrl = import.meta.env.VITE_BASE_URL;
 
 export default function FetchData() {
   const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ export default function FetchData() {
         setIsError(false);
 
         setIsLoading(true);
-        const response = await fetch(url);
+        const response = await fetch(apiUrl + "/venues?populate=MainImage");
         const json = await response.json();
         setData(json.data);
 
@@ -41,6 +41,7 @@ export default function FetchData() {
     <div>
       {data.map((item) => (
         <div key={item.id}>
+          {/*REMOVE LOCALHOST STRING WHEN GOING LIVE, LIVE API HAS CORRECT URL IN OBJECT */}
           <img
             className="w-48 h-48"
             src={
@@ -48,7 +49,6 @@ export default function FetchData() {
               item.attributes.MainImage.data.attributes.url
             }
           />
-
           <h1 className="text-xl">{item.attributes.Title}</h1>
           <p>{item.attributes.Description}</p>
         </div>
