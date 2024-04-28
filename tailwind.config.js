@@ -2,6 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      tablet: "600px",
+      pc: "1040px",
+    },
     extend: {
       colors: {
         charcoal: "#23232C",

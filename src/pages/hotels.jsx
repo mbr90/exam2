@@ -1,4 +1,4 @@
-import FetchData from "../components/fetchData";
+import ShowVenues from "../components/ShowVenues";
 import { Helmet } from "react-helmet";
 
 export default function Hotels() {
@@ -11,7 +11,7 @@ export default function Hotels() {
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
       <h1 className="text-3xl font-bold underline">Hello Result!</h1>
-      <FetchData />
+      <ShowVenues />
     </main>
   );
 }

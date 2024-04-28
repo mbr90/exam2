@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import HeroSection from "../components/HeroSection";
+import ShowVenues from "../components/ShowVenues";
 
 export default function Home() {
   return (
@@ -14,7 +15,9 @@ export default function Home() {
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
       <HeroSection />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="max-w-[1636px] mx-auto mt-8">
+        <ShowVenues />
+      </div>
     </>
   );
 }

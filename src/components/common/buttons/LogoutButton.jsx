@@ -1,4 +1,4 @@
-import { useUserActions } from "../../stores/useUserStore";
+import { useUserActions } from "../../../stores/useUserStore";
 import { useNavigate } from "react-router-dom";
 import BorderButton from "./BorderButton";
 

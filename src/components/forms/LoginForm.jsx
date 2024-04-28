@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useUserActions } from "../../stores/useUserStore";
 import { useNavigate } from "react-router-dom";
+import BackgroundButton from "../common/buttons/BackgroundButton";
 
 const schema = yup
   .object({
@@ -59,28 +60,34 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="mt-4 max-w-80 mx-auto" onSubmit={handleSubmit(onSubmit)}>
-      <fieldset className="flex flex-col gap-3" disabled={isLoading}>
-        {error && <h1>{error}</h1>}
+    <form className="mt-4 max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
+      <fieldset
+        className="flex flex-col gap-3 items-center justify-center"
+        disabled={isLoading}
+      >
+        {error && <div className="text-red-500">{error}</div>}
+
         <input
           placeholder="Username"
-          className="max-w-48 border-solid border-2 border-black"
+          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
           {...register("identifier")}
         />
-        <p>{errors.identifier?.message}</p>
+        <p className="text-red-500 text-sm">{errors.identifier?.message}</p>
+
         <input
           placeholder="Password"
-          className="max-w-48 border-solid border-2 border-black"
-          {...register("password")}
+          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
           type="password"
+          {...register("password")}
         />
-        <p>{errors.password?.message}</p>
-        <button
-          className="max-w-48 border-solid border-2 border-black"
+        <p className="text-red-500 text-sm">{errors.password?.message}</p>
+
+        <BackgroundButton
+          text={isLoading ? "Logging in..." : "Login"}
           type="submit"
-        >
-          {isLoading ? "Logging in..." : "Login"}
-        </button>
+          disabled={isLoading}
+          className="w-full py-2"
+        />
       </fieldset>
     </form>
   );
