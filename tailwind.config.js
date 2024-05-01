@@ -4,7 +4,7 @@ export default {
   theme: {
     screens: {
       tablet: "600px",
-      pc: "1040px",
+      pc: "1200px",
     },
     extend: {
       colors: {

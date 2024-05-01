@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useUserActions } from "../../stores/useUserStore";
 import { useNavigate } from "react-router-dom";
 import BackgroundButton from "../common/buttons/BackgroundButton";
+import { useMutation } from "@tanstack/react-query";
+import login from "../../api/auth/login";
 
 const schema = yup
   .object({
@@ -16,14 +17,18 @@ const schema = yup
   })
   .required();
 
-const apiUrl = import.meta.env.VITE_BASE_URL;
-
 export default function LoginForm() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const { setUser } = useUserActions();
 
   const navigate = useNavigate();
+
+  const loginMutation = useMutation({
+    mutationFn: (data) => login(data),
+    onSuccess: (data) => {
+      setUser(data);
+      navigate("/admin");
+    },
+  });
 
   const {
     register,
@@ -34,38 +39,19 @@ export default function LoginForm() {
   });
 
   async function onSubmit(data) {
-    const options = {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(data),
-    };
-
-    try {
-      setIsLoading(true);
-      setError(null);
-      const response = await fetch(apiUrl + "/auth/local", options);
-      const json = await response.json();
-
-      if (!response.ok) {
-        return setError(json.error?.message ?? "There was an error");
-      }
-
-      setUser(json);
-      navigate("/admin");
-    } catch (error) {
-      setError(error.toString());
-    } finally {
-      setIsLoading(false);
-    }
+    loginMutation.mutate(data);
+    console.log(data);
   }
 
   return (
     <form className="mt-4 max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <fieldset
         className="flex flex-col gap-3 items-center justify-center"
-        disabled={isLoading}
+        disabled={loginMutation.isPending}
       >
-        {error && <div className="text-red-500">{error}</div>}
+        {loginMutation.isError && (
+          <div className="text-red-500">{loginMutation.error.message}</div>
+        )}
 
         <input
           placeholder="Username"
@@ -83,9 +69,9 @@ export default function LoginForm() {
         <p className="text-red-500 text-sm">{errors.password?.message}</p>
 
         <BackgroundButton
-          text={isLoading ? "Logging in..." : "Login"}
+          text={loginMutation.isPending ? "Logging in..." : "Login"}
           type="submit"
-          disabled={isLoading}
+          disabled={loginMutation.isPending}
           className="w-full py-2"
         />
       </fieldset>

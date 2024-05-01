@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
       <HeroSection />
-      <div className="max-w-[1636px] mx-auto mt-8">
+      <div className="max-w-[1636px] mx-auto my-8">
         <ShowVenues />
       </div>
     </>
