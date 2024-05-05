@@ -40,7 +40,6 @@ export default function LoginForm() {
 
   async function onSubmit(data) {
     loginMutation.mutate(data);
-    console.log(data);
   }
 
   return (

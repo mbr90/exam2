@@ -1,7 +1,10 @@
 import ShowVenues from "../components/ShowVenues";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import SearchBar from "../components/SearchBar";
+import useFetchVenues from "../hooks/useFetchVenues";
 
 export default function Hotels() {
+  const { isPending, error, venues } = useFetchVenues();
   return (
     <main>
       <Helmet>
@@ -10,8 +13,8 @@ export default function Hotels() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <h1 className="text-3xl font-bold underline">Hello Result!</h1>
-      <ShowVenues />
+      <SearchBar />
+      <ShowVenues isPending={isPending} error={error} venues={venues} />
     </main>
   );
 }
