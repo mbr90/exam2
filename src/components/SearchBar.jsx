@@ -53,18 +53,29 @@ export default function SearchBar({ venues }) {
   const handleParticipantChange = (type, operation) => {
     const maxValue = 20;
     setGuests((currentGuests) => {
-      const currentValue = currentGuests[type];
-      return {
+      let newCount = currentGuests[type];
+
+      if (operation === "increment") {
+        newCount = newCount < maxValue ? newCount + 1 : newCount;
+      } else if (operation === "decrement") {
+        newCount = newCount > 0 ? newCount - 1 : 0;
+      }
+
+      const updatedGuests = {
         ...currentGuests,
-        [type]:
-          operation === "increment"
-            ? currentValue < maxValue
-              ? currentValue + 1
-              : currentValue
-            : currentValue > 0
-            ? currentValue - 1
-            : 0,
+        [type]: newCount,
       };
+
+      if (
+        (updatedGuests.pets > 0 ||
+          updatedGuests.infants > 0 ||
+          updatedGuests.children) &&
+        updatedGuests.adults < 1
+      ) {
+        updatedGuests.adults = 1;
+      }
+
+      return updatedGuests;
     });
   };
 
