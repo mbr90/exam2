@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import ContactForm from "../components/forms/ContactForm";
 
 export default function Contact() {
   return (
@@ -9,7 +10,7 @@ export default function Contact() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <h1 className="text-3xl font-bold underline">Hello contact!</h1>
+      <ContactForm />
     </main>
   );
 }

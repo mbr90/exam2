@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useToken } from "../stores/useUserStore";
 
 export default function AdminPage() {

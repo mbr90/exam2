@@ -1,8 +1,11 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import HeroSection from "../components/HeroSection";
+import useFetchVenues from "../hooks/useFetchVenues";
 import ShowVenues from "../components/ShowVenues";
 
 export default function Home() {
+  const { isPending, error, venues } = useFetchVenues();
+
   return (
     <>
       <Helmet>
@@ -14,9 +17,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <HeroSection />
-      <div className="max-w-[1636px] mx-auto mt-8">
-        <ShowVenues />
+      <HeroSection venues={venues?.data} />
+      <div className="max-w-[1636px] mx-auto my-8">
+        <ShowVenues isPending={isPending} error={error} venues={venues} />
       </div>
     </>
   );
