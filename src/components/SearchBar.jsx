@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { add } from "date-fns";
@@ -15,17 +16,39 @@ import {
   useSearchStoreState,
 } from "../stores/useSearchStore";
 
-export default function SearchBar() {
-  const { setLocation, setCheckInDate, setCheckOutDate, setGuests } =
-    useSearchActions();
+import BackgroundButton from "./common/buttons/BackgroundButton";
+
+export default function SearchBar({ venues }) {
+  const {
+    setLocation,
+    setCheckInDate,
+    setCheckOutDate,
+    setGuests,
+    clearSearchStore,
+  } = useSearchActions();
   const { location, checkInDate, checkOutDate, guests } = useSearchStoreState();
   const [isGuestsOpen, setGuestsOpen] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
+  const inputRef = useRef(null);
 
   const toggleGuestsDropdown = () => {
     setGuestsOpen((prev) => !prev);
   };
+
+  const handleLocationSelect = (loc) => {
+    setLocation(loc);
+    setIsInputFocused(false);
+  };
+
+  const uniqueLocations = Array.from(
+    new Set(venues?.data.map((venue) => venue.attributes?.Location))
+  );
+
+  const filterVenues = uniqueLocations.filter((loc) =>
+    loc.toLowerCase().includes(location.toLowerCase())
+  );
 
   const handleParticipantChange = (type, operation) => {
     const maxValue = 20;
@@ -51,9 +74,11 @@ export default function SearchBar() {
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target) &&
         buttonRef.current &&
-        !buttonRef.current.contains(event.target)
+        !buttonRef.current.contains(event.target) &&
+        !inputRef.current.contains(event.target)
       ) {
         setGuestsOpen(false);
+        setIsInputFocused(false);
       }
     };
 
@@ -73,15 +98,32 @@ export default function SearchBar() {
   return (
     <div className="flex flex-col w-full">
       <ul className="flex gap-2 mx-auto border-solid border-2 border-black p-4 rounded-full">
-        <li className="flex clear-start hover:cursor-pointer">
+        <li className="flex clear-start hover:cursor-pointer relative">
           <MdOutlineSearch />
           <input
+            ref={inputRef}
             type="text"
             placeholder="Where to"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            onFocus={() => setIsInputFocused(true)}
+            onBlur={() => setTimeout(() => setIsInputFocused(false), 300)}
             className="ml-2 outline-none cursor-pointer"
           />
+
+          {isInputFocused && filterVenues.length > 0 && (
+            <ul className="absolute top-11 left-1/2 transform -translate-x-1/2 text-black flex flex-col w-64 bg-white z-50 p-2">
+              {filterVenues.map((loc) => (
+                <li
+                  key={loc}
+                  onClick={() => handleLocationSelect(loc)}
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                >
+                  {loc}
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
         <li className="flex hover:cursor-pointer">
           <MdOutlineDateRange />
@@ -154,7 +196,22 @@ export default function SearchBar() {
             </div>
           )}
         </li>
+        <li>
+          <BackgroundButton text={"Clear"} onClick={() => clearSearchStore()} />
+        </li>
       </ul>
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  venues: PropTypes.shape({
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        attributes: PropTypes.shape({
+          Location: PropTypes.string,
+        }),
+      })
+    ),
+  }),
+};

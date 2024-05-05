@@ -13,7 +13,7 @@ export default function Hotels() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <SearchBar />
+      <SearchBar venues={venues} />
       <ShowVenues isPending={isPending} error={error} venues={venues} />
     </main>
   );

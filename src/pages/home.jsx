@@ -17,7 +17,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <HeroSection venues={venues?.data} />
+      <HeroSection venues={venues} />
       <div className="max-w-[1636px] mx-auto my-8">
         <ShowVenues isPending={isPending} error={error} venues={venues} />
       </div>
