@@ -21,12 +21,15 @@ export default function HeroSection({ venues }) {
 }
 
 HeroSection.propTypes = {
-  venues: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      attributes: PropTypes.shape({
-        Title: PropTypes.string,
-      }),
-    })
-  ),
+  venues: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        attributes: PropTypes.shape({
+          Title: PropTypes.string,
+        }),
+      })
+    ),
+    PropTypes.object, // If there might be a chance it could be an object
+  ]),
 };
