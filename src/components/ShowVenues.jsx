@@ -8,12 +8,14 @@ export default function ShowVenues({ isPending, error, venues }) {
 
   const filteredVenues = venues?.data.filter((venue) => {
     const totalGuests = guests.adults + guests.children;
+    const hasPets = guests.pets > 0 ? venue.attributes.PetFriendly : true;
     return (
       venue.attributes.Location.toLowerCase().includes(
         location.toLowerCase()
       ) &&
-      venue.attributes.Adults + venue.attributes.Children >= totalGuests &&
-      isVenueAvailable(venue, checkInDate, checkOutDate)
+      venue.attributes.NumberOfBeds >= totalGuests &&
+      isVenueAvailable(venue, checkInDate, checkOutDate) &&
+      hasPets
     );
   });
 
@@ -45,6 +47,11 @@ ShowVenues.propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
+        attributes: PropTypes.shape({
+          Location: PropTypes.string.isRequired,
+          NumberOfBeds: PropTypes.number.isRequired,
+          PetFriendly: PropTypes.bool,
+        }),
       })
     ),
   }),

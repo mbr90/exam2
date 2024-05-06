@@ -22,7 +22,6 @@ export default function ContactForm() {
   const contactMutation = useMutation({
     mutationFn: postMessage,
     onSuccess: () => {
-      // Handle success, maybe clear form or show a success message
       alert("Your message has been sent!");
     },
   });
@@ -39,7 +38,7 @@ export default function ContactForm() {
   async function onSubmit(data) {
     const formattedData = capitalizeKeys(data);
     contactMutation.mutate(formattedData);
-    reset(); // Optionally reset the form after submit
+    reset();
   }
 
   return (
