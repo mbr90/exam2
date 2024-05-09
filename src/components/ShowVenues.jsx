@@ -50,8 +50,8 @@ ShowVenues.propTypes = {
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         attributes: PropTypes.shape({
-          Location: PropTypes.string.isRequired,
-          NumberOfBeds: PropTypes.number.isRequired,
+          Location: PropTypes.string,
+          NumberOfBeds: PropTypes.number,
           PetFriendly: PropTypes.bool,
         }),
       })

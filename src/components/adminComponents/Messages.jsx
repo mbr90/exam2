@@ -6,7 +6,6 @@ const queryKey = "Messages";
 
 export default function Messages() {
   const { isPending, error, data } = useAuthorizedFetch(endpoint, queryKey);
-  console.log(data);
 
   if (isPending) {
     return <div>Loading results..</div>;

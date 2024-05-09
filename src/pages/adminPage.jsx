@@ -9,14 +9,14 @@ export default function AdminPage() {
   const token = useToken();
   const [activeTab, setActiveTab] = useState("messages");
   return (
-    <main className="h-screen">
+    <main>
       <Helmet>
         <title>Holidaze: Admin</title>
         <meta name="description" content="Admin panel" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-      <div className="w-full bg-deepsea h-1/5 flex justify-center align-middle">
+      <div className="w-full bg-deepsea h-[200px]  flex justify-center align-middle">
         <h1 className="text-white my-auto">Admin Console</h1>
       </div>
       {!token ? (

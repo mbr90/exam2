@@ -6,7 +6,6 @@ const queryKey = "Enquirys";
 
 export default function Enquirys() {
   const { isPending, error, data } = useAuthorizedFetch(endpoint, queryKey);
-  console.log(data);
 
   if (isPending) {
     return <div>Loading results..</div>;
@@ -24,6 +23,7 @@ export default function Enquirys() {
           className=" border-black col-span-4 tablet:col-span-8 pc:col-span-12 flex border pb-5 rounded-lg "
           key={enquiry.id}
         >
+          <section></section>
           <section className="flex flex-col mr-10 w-1/5">
             <h2>Date</h2>
             <p>{enquiry.attributes?.Date}</p>
