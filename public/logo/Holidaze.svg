@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="181" height="74" viewBox="0 0 181 74">
+  <g id="Logo" transform="translate(3)">
+    <g id="Group_3" data-name="Group 3" transform="translate(-888 -20)">
+      <line id="Line_6" data-name="Line 6" x2="27.5" transform="translate(890 60)" fill="none" stroke="#023c3e" stroke-linecap="round" stroke-width="6"/>
+      <line id="Line_4" data-name="Line 4" y2="29" transform="translate(888 45.5)" fill="none" stroke="#023c3e" stroke-linecap="round" stroke-width="6"/>
+      <line id="Line_5" data-name="Line 5" y2="21" transform="translate(918 53.5)" fill="none" stroke="#023c3e" stroke-linecap="round" stroke-width="6"/>
+    </g>
+    <g id="Group_4" data-name="Group 4" transform="translate(-888 -20)">
+      <text id="olidaze" transform="translate(921 77)" fill="#023c3e" font-size="48" font-family="Nunito-Bold, Nunito" font-weight="700" letter-spacing="-0.05em"><tspan x="0" y="0">olida</tspan><tspan y="0" fill="#e66435">z</tspan><tspan y="0">e</tspan></text>
+      <text id="z" transform="translate(1028 47)" fill="#e66435" font-size="20" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="0" y="0">z</tspan></text>
+      <text id="z-2" data-name="z" transform="translate(1039 34)" fill="#e66435" font-size="14" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="0" y="0">z</tspan></text>
+    </g>
+  </g>
+</svg>

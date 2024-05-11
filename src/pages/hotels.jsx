@@ -1,6 +1,6 @@
 import ShowVenues from "../components/ShowVenues";
 import { Helmet } from "react-helmet-async";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/common/search/SearchBar";
 import useFetchVenues from "../hooks/useFetchVenues";
 
 export default function Hotels() {
@@ -14,7 +14,7 @@ export default function Hotels() {
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
       <div className="flex w-full align-middle justify-center py-8">
-        <span className="bg-ash rounded-full">
+        <span className="bg-slate-50 rounded-full">
           <SearchBar venues={venues} />
         </span>
       </div>

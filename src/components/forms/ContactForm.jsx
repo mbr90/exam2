@@ -42,7 +42,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="mt-4 max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="mt-4 w-[95%] tablet:w-96 mx-auto"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <fieldset
         className="flex flex-col gap-3 items-center justify-center"
         disabled={contactMutation.isLoading}
@@ -53,28 +56,28 @@ export default function ContactForm() {
 
         <input
           placeholder="Name"
-          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
+          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("name")}
         />
         <p className="text-red-500 text-sm">{errors.name?.message}</p>
 
         <input
           placeholder="Email"
-          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
+          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("email")}
         />
         <p className="text-red-500 text-sm">{errors.email?.message}</p>
 
         <input
           placeholder="Subject"
-          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
+          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("subject")}
         />
         <p className="text-red-500 text-sm">{errors.subject?.message}</p>
 
         <textarea
           placeholder="Your message"
-          className="w-full px-4 py-2 border border-sandstone rounded focus:outline-none focus:border-deepsea"
+          className="w-full px-4 py-3 border h-40 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("message")}
         />
         <p className="text-red-500 text-sm">{errors.message?.message}</p>

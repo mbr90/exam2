@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { useSearchStoreState } from "../stores/useSearchStore";
 import { isVenueAvailable } from "../utils/venueAvailability";
 
+// TODO: Ensure that site doesn't break if venues doesn't have all variables
+
 export default function ShowVenues({ isPending, error, venues }) {
   const { location, checkInDate, checkOutDate, guests } = useSearchStoreState();
 
@@ -28,7 +30,7 @@ export default function ShowVenues({ isPending, error, venues }) {
   }
 
   return (
-    <div className="w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 tablet:px-4 pc:mx-auto pc:px-8">
+    <div className="w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 pb-24 tablet:px-4 pc:mx-auto pc:px-8">
       {filteredVenues.length > 0 ? (
         filteredVenues.map((venue) => (
           <VenueCard key={venue.id} venue={venue} />
@@ -48,8 +50,8 @@ ShowVenues.propTypes = {
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         attributes: PropTypes.shape({
-          Location: PropTypes.string.isRequired,
-          NumberOfBeds: PropTypes.number.isRequired,
+          Location: PropTypes.string,
+          NumberOfBeds: PropTypes.number,
           PetFriendly: PropTypes.bool,
         }),
       })
