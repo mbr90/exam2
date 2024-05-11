@@ -152,17 +152,17 @@ export default function MobileSearch({ venues }) {
                     onBlur={() =>
                       setTimeout(() => setIsInputFocused(false), 300)
                     }
-                    className="ml-2 outline-none cursor-pointer placeholder-charcoal bg-cloud"
+                    className="ml-2 outline-none cursor-pointer placeholder-charcoal bg-cloud z-20"
                   />
                 </li>
 
                 {isInputFocused && mobileVenues.length > 0 && (
-                  <ul className=" text-deepsea flex flex-col w-full bg-cloud z-50 border border-deepsea rounded-3xl pt-10 p-2">
+                  <ul className="transform -translate-y-14 text-deepsea flex flex-col w-full bg-cloud border border-deepsea rounded-3xl  p-2 pt-12">
                     {mobileVenues.map((loc) => (
                       <li
                         key={loc}
                         onClick={() => handleLocationSelect(loc)}
-                        className="p-2 hover:bg-gray-200 cursor-pointer"
+                        className="p-3 hover:bg-gray-200 cursor-pointer ml-4"
                       >
                         {loc}
                       </li>

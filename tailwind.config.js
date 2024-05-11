@@ -17,6 +17,11 @@ export default {
         tigerlily: "#E66435",
         salmon: "#E9805A",
       },
+      fontFamily: {
+        header: ["Nunito", "sans-serif"],
+        text: ["Montserrat", "sans-serif"],
+        button: ["maple-web", "sans-serif"],
+      },
     },
   },
   plugins: [],

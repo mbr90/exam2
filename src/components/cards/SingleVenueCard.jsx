@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { useState } from "react";
 import BackgroundButton from "../common/buttons/BackgroundButton";
+import { LuDot } from "react-icons/lu";
 
 const SingleVenueCard = ({ data }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -10,9 +11,16 @@ const SingleVenueCard = ({ data }) => {
 
   const formattedPrice = formatCurrency(data.attributes.Price || 0);
 
+  const petFriendly = data.attributes.PetFriendly;
+
+  // const imageUrl =
+  //   images.length > 0
+  //     ? `http://localhost:1337${images[0].attributes.url}` // TODO: remove local host before going to prod
+  //     : "/images/default-image.jpg";
+
   const imageUrl =
     images.length > 0
-      ? `http://localhost:1337${images[0].attributes.url}` // TODO: remove local host before going to prod
+      ? `${images[0].attributes.url}` // TODO: remove local host before going to prod
       : "/images/default-image.jpg";
 
   const openModal = (index) => {
@@ -34,11 +42,17 @@ const SingleVenueCard = ({ data }) => {
     );
   };
 
+  console.log(data);
+
   return (
     <div className="w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 tablet:px-4 pc:mx-auto pc:px-8">
-      <div className="border rounded-lg shadow-md col-span-4 pc:col-span-3 flex flex-col pb-2">
+      <h1 className="col-span-full text-deepsea font-header font-bold text-3xl ">
+        {data.attributes.Title || "Unnamed Venue"}
+      </h1>
+
+      <div className=" col-span-4 pc:col-span-3 flex flex-col pb-2">
         <img
-          className="w-full h-[271px] object-cover"
+          className="w-full h-[271px] object-cover rounded-3xl"
           src={imageUrl}
           alt={data.attributes.Title || "Default Venue"}
           onError={(e) => {
@@ -46,13 +60,38 @@ const SingleVenueCard = ({ data }) => {
             e.target.src = "/images/hotel6.jpg";
           }}
         />
-        <div className="p-8">
-          <h1 className="text-xl mb-2">
-            {data.attributes.Title || "Unnamed Venue"}
+        <div className="p-4">
+          <h1 className="text-2xl font-header text-deepsea mb-2">
+            {data.attributes.Location}
           </h1>
-          <p>{data.attributes.Description || "No description available."}</p>
-          <p className="text-tigerlily mt-2">
-            Price per night: {formattedPrice}
+          <ul className="flex flex-wrap  text-[11px] col-span-full mx-auto w-full">
+            <li className=" flex font-header font-bold text-deepsea ">
+              <LuDot className="my-auto" size={16} />
+              {data.attributes.NumberOfBedrooms} BEDROOM
+            </li>
+            <li className="flex font-header font-bold text-deepsea px-1">
+              <LuDot className="my-auto" size={16} />
+              {data.attributes.NumberOfBeds} BEDS
+            </li>
+            <li className="flex font-header font-bold text-deepsea px-1">
+              <LuDot className="my-auto" size={16} />
+              {data.attributes.NumberOfBathrooms} BATHS
+            </li>
+            <li className="flex font-header font-bold text-deepsea px-1">
+              {petFriendly && (
+                <>
+                  <LuDot className="my-auto" size={16} />
+                  PET-FRIENDLY
+                </>
+              )}
+            </li>
+          </ul>
+
+          <p className="font-button text-sm ">
+            {data.attributes.Description || "No description available."}
+          </p>
+          <p className="text-tigerlily font-button mt-2">
+            {formattedPrice} <span className="text-charcoal">/Night</span>
           </p>
         </div>
         {images.slice(1).map((img, index) => (

@@ -4,8 +4,12 @@ import { formatCurrency } from "../../utils/formatCurrency";
 
 const VenueCard = ({ venue }) => {
   // TODO: remove localhost when going to production
+  // const imageUrl = venue.attributes?.Media?.data?.[0]?.attributes?.url
+  //   ? `http://localhost:1337${venue.attributes.Media.data[0].attributes.url}`
+  //   : "/images/default-image.jpg";
+
   const imageUrl = venue.attributes?.Media?.data?.[0]?.attributes?.url
-    ? `http://localhost:1337${venue.attributes.Media.data[0].attributes.url}`
+    ? `${venue.attributes.Media.data[0].attributes.url}`
     : "/images/default-image.jpg";
 
   const formattedPrice = formatCurrency(venue.attributes?.Price || 0);
@@ -26,9 +30,9 @@ const VenueCard = ({ venue }) => {
           }}
         />
         <div className="p-8">
-          <h1 className="text-xl mb-2">{title}</h1>
-          <p>{description}</p>
-          <p className="text-tigerlily mt-2">
+          <h1 className="text-xl font-header mb-2">{title}</h1>
+          <p className="font-text">{description}</p>
+          <p className="text-tigerlily font-button mt-2">
             Price per night: {formattedPrice}
           </p>
         </div>

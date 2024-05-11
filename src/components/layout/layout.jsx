@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="flex-grow pb-24">
+      <div className="flex-grow pb-16">
         <Outlet />
       </div>
       <MobileNav />

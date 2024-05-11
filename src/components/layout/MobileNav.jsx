@@ -30,7 +30,7 @@ export default function MobileNav() {
     ];
   }
   return (
-    <div className="block tablet:hidden pc:hidden fixed inset-x-0 bottom-0 bg-deepsea shadow-lg h-24 z-50">
+    <div className="block tablet:hidden pc:hidden fixed inset-x-0 bottom-0 bg-deepsea shadow-lg h-16 z-50">
       <nav className="flex justify-around items-center py-2 h-full relative">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -52,7 +52,7 @@ export default function MobileNav() {
               className="flex flex-col items-center space-y-1 text-white"
             >
               {isActive && (
-                <div className="absolute top-[-30px] bg-white rounded-full p-2 shadow-lg">
+                <div className="absolute top-[-35px] bg-white rounded-full p-2 shadow-lg">
                   <div className="bg-tigerlily rounded-full p-2">
                     <Icon size={24} className="text-white" />
                   </div>
