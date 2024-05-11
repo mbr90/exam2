@@ -7,6 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import postVenue from "../../api/post/postVenue";
 import { useToken } from "../../stores/useUserStore";
 import { capitalizeKeys } from "../../utils/capitalize";
+import { useQueryClient } from "@tanstack/react-query";
 
 const schema = yup
   .object({
@@ -32,6 +33,7 @@ const schema = yup
   .required();
 
 export default function VenueForm() {
+  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -70,11 +72,11 @@ export default function VenueForm() {
       alert("Venue Created");
       console.log(response);
       reset();
+      queryClient.invalidateQueries(["venues"]);
     },
   });
 
   async function onSubmit(data) {
-    console.log(data);
     const formData = new FormData();
 
     const { media, ...otherData } = data;

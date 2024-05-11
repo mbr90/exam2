@@ -7,10 +7,14 @@ import { useToken } from "../../stores/useUserStore";
 export default function Header() {
   const token = useToken();
   return (
-    <div className=" bg-white shadow-md ">
+    <div className=" hidden tablet:block pc:block bg-white shadow-md ">
       <header className="flex justify-between items-center py-4 px-8  max-w-[1042px] mx-auto w-full">
         <Link to="/">
-          <h1 className="font-bold text-xl text-tigerlily">Holidaze</h1>
+          <img
+            src="/logo/Holidaze.svg"
+            alt="Holidae Logo"
+            className="w-auto h-[74px]"
+          />
         </Link>
         <nav className="flex justify-between items-center mx-auto">
           <ul className="flex space-x-4 mx-auto">

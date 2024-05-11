@@ -15,3 +15,7 @@ html, body {
    text-underline-offset: 5px;
 }
 
+
+.bg-none {
+  background-image: none !important;
+}

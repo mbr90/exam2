@@ -11,18 +11,13 @@ async function postVenue({ data, token }) {
     body: data,
   };
 
-  try {
-    const response = await fetch(url, options);
-    const json = await response.json();
+  const response = await fetch(url, options);
+  const json = await response.json();
 
-    if (!response.ok) {
-      throw new Error(json.message ?? "There was an error");
-    }
-    return json;
-  } catch (error) {
-    console.error("Failed to submit venue:", error);
-    throw error;
+  if (!response.ok) {
+    throw new Error(json.message ?? "There was an error");
   }
+  return json;
 }
 
 export default postVenue;
