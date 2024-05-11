@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useToken } from "../stores/useUserStore";
 import { useState } from "react";
-import Venues from "../components/adminComponents/Venues";
-import Enquirys from "../components/adminComponents/Enquirys";
-import Messages from "../components/adminComponents/Messages";
+import Venues from "../components/adminComponents/Venues.jsx";
+import Enquirys from "../components/adminComponents/Enquirys.jsx";
+import Messages from "../components/adminComponents/Messages.jsx";
 
 export default function AdminPage() {
   const token = useToken();

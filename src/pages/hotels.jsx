@@ -1,6 +1,6 @@
-import ShowVenues from "../components/ShowVenues";
+import ShowVenues from "../components/ShowVenues.jsx";
 import { Helmet } from "react-helmet-async";
-import SearchBar from "../components/common/search/SearchBar";
+import SearchBar from "../components/common/search/SearchBar.jsx";
 import useFetchVenues from "../hooks/useFetchVenues";
 
 export default function Hotels() {

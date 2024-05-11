@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import BackgroundButton from "../common/buttons/BackgroundButton";
+import BackgroundButton from "../common/buttons/BackgroundButton.jsx";
 import { useMutation } from "@tanstack/react-query";
 import postMessage from "../../api/post/postMessage";
 import { capitalizeKeys } from "../../utils/capitalize";

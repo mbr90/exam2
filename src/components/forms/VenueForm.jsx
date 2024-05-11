@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDropzone } from "react-dropzone";
-import BackgroundButton from "../common/buttons/BackgroundButton";
+import BackgroundButton from "../common/buttons/BackgroundButton.jsx";
 import { useMutation } from "@tanstack/react-query";
 import postVenue from "../../api/post/postVenue";
 import { useToken } from "../../stores/useUserStore";

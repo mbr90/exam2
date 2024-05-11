@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import SearchBar from "./common/search/SearchBar";
-import MobileSearch from "./common/search/MobileSearch";
+import SearchBar from "./common/search/SearchBar.jsx";
+import MobileSearch from "./common/search/MobileSearch.jsx";
 
 export default function HeroSection({ venues }) {
   return (

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import HeroSection from "../components/HeroSection";
-import useFetchVenues from "../hooks/useFetchVenues";
-import ShowVenues from "../components/ShowVenues";
+import HeroSection from "../components/HeroSection.jsx";
+import useFetchVenues from "../hooks/useFetchVenues.jsx";
+import ShowVenues from "../components/ShowVenues.jsx";
 
 export default function Home() {
   const { isPending, error, venues } = useFetchVenues();

@@ -1,4 +1,4 @@
-import VenueCard from "./cards/VenueCard";
+import VenueCard from "./cards/VenueCard.jsx";
 import PropTypes from "prop-types";
 import { useSearchStoreState } from "../stores/useSearchStore";
 import { isVenueAvailable } from "../utils/venueAvailability";

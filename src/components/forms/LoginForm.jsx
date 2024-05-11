@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useUserActions } from "../../stores/useUserStore";
 import { useNavigate } from "react-router-dom";
-import BackgroundButton from "../common/buttons/BackgroundButton";
+import BackgroundButton from "../common/buttons/BackgroundButton.jsx";
 import { useMutation } from "@tanstack/react-query";
 import login from "../../api/auth/login";
 

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import LogoutButton from "../common/buttons/LogoutButton";
-import BorderButton from "../common/buttons/BorderButton";
+import LogoutButton from "../common/buttons/LogoutButton.jsx";
+import BorderButton from "../common/buttons/BorderButton.jsx";
 import { useToken } from "../../stores/useUserStore";
 
 export default function Header() {
