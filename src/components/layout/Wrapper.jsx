@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import Head from "./Head.jsx";
 import MobileNav from "./MobileNav.jsx";
+import Foot from "./Foot.jsx";
 
 export default function Wrapper() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Head />
       <div className="flex-grow pb-16">
         <Outlet />
       </div>
       <MobileNav />
-      <Footer />
+      <Foot />
     </div>
   );
 }

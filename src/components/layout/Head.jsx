@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LogoutButton from "../common/buttons/LogoutButton.jsx";
 import BorderButton from "../common/buttons/BorderButton.jsx";
-import { useToken } from "../../stores/useUserStore";
+import { useToken } from "../../stores/useUserStore.jsx";
 
-export default function Header() {
+export default function Head() {
   const token = useToken();
   return (
     <div className=" hidden tablet:block pc:block bg-white shadow-md ">
