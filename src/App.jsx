@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import Home from "./pages/home";
-import Hotels from "./pages/hotels";
-import Hotel from "./pages/hotel";
-import Contact from "./pages/contact";
-import Login from "./pages/login";
-import AdminPage from "./pages/adminPage";
-import ErrorPageNotFound from "./components/layout/ErrorPageNotFound";
+import Layout from "./components/layout/Layout.jsx";
+import Home from "./pages/home.jsx";
+import Hotels from "./pages/hotels.jsx";
+import Hotel from "./pages/hotel.jsx";
+import Contact from "./pages/contact.jsx";
+import Login from "./pages/login.jsx";
+import AdminPage from "./pages/adminPage.jsx";
+import ErrorPageNotFound from "./components/layout/ErrorPageNotFound.jsx";
 
 function App() {
   return (

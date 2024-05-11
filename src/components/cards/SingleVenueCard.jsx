@@ -130,12 +130,17 @@ SingleVenueCard.propTypes = {
       Title: PropTypes.string,
       Description: PropTypes.string,
       Price: PropTypes.number,
+      PetFriendly: PropTypes.bool,
+      Location: PropTypes.string,
+      NumberOfBedrooms: PropTypes.number,
+      NumberOfBeds: PropTypes.number,
+      NumberOfBathrooms: PropTypes.number,
       Media: PropTypes.shape({
         data: PropTypes.arrayOf(
           PropTypes.shape({
-            id: PropTypes.number,
+            id: PropTypes.number.isRequired,
             attributes: PropTypes.shape({
-              url: PropTypes.string,
+              url: PropTypes.string.isRequired,
             }),
           })
         ),
