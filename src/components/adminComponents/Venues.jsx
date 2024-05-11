@@ -1,7 +1,7 @@
-import VenueForm from "../forms/VenueForm";
+import VenueForm from "../forms/VenueForm.jsx";
 import useFetchVenues from "../../hooks/useFetchVenues";
-import VenueCard from "../cards/VenueCard";
-import BorderButton from "../common/buttons/BorderButton";
+import VenueCard from "../cards/VenueCard.jsx";
+import BorderButton from "../common/buttons/BorderButton.jsx";
 import deleteVenue from "../../api/delete/deleteVenue";
 import { useToken } from "../../stores/useUserStore";
 import { useQueryClient } from "@tanstack/react-query";

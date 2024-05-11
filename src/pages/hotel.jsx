@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import fetchVenues from "../api/get/fetchVenues";
 import { useQuery } from "@tanstack/react-query";
-import SingleVenueCard from "../components/cards/SingleVenueCard";
+import SingleVenueCard from "../components/cards/SingleVenueCard.jsx";
 import { useNavigate } from "react-router-dom";
 
 export default function Hotel() {

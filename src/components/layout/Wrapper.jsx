@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import MobileNav from "./MobileNav";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
+import MobileNav from "./MobileNav.jsx";
 
 export default function Wrapper() {
   return (

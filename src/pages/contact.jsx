@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import ContactForm from "../components/forms/ContactForm";
+import ContactForm from "../components/forms/ContactForm.jsx";
 
 export default function Contact() {
   return (

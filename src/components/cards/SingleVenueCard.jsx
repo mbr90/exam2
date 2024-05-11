@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { useState } from "react";
-import BackgroundButton from "../common/buttons/BackgroundButton";
+import BackgroundButton from "../common/buttons/BackgroundButton.jsx";
 import { LuDot } from "react-icons/lu";
 
 const SingleVenueCard = ({ data }) => {

@@ -1,6 +1,6 @@
 import { useUserActions } from "../../../stores/useUserStore";
 import { useNavigate } from "react-router-dom";
-import BorderButton from "./BorderButton";
+import BorderButton from "./BorderButton.jsx";
 
 function LogoutButton() {
   const { clearUser } = useUserActions();

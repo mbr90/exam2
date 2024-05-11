@@ -17,7 +17,7 @@ import {
   useSearchStoreState,
 } from "../../../stores/useSearchStore";
 
-import BackgroundButton from "../buttons/BackgroundButton";
+import BackgroundButton from "../buttons/BackgroundButton.jsx";
 
 export default function MobileSearch({ venues }) {
   const {
