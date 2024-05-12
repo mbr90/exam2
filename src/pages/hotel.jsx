@@ -25,46 +25,47 @@ export default function Hotel() {
   });
 
   return (
-    <main>
+    <main className="w-full">
       <Helmet>
         <title>Venue {params.id}</title>
         <meta name="description" content="Our venues" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/HolidazeLogo.png" />
       </Helmet>
-
-      <img
-        src="/logo/Holidaze.svg"
-        alt="Holidae Logo"
-        className="w-auto h-[74px] mx-auto my-5"
-      />
-      <button
-        className="flex items-center text-deepsea font-bold py-2 px-4 underline "
-        onClick={goBack}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="currentColor"
-          className="w-6 h-6 mr-2"
+      <div className="tablet:mx-auto flex-col">
+        <img
+          src="/logo/Holidaze.svg"
+          alt="Holidae Logo"
+          className="w-auto h-[74px] mx-auto my-5 pc:hidden"
+        />
+        <button
+          className="flex items-center tablet:hidden text-deepsea font-bold py-2 px-4 underline "
+          onClick={goBack}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 12H5m7-7l-7 7 7 7"
-          />
-        </svg>
-        BACK
-      </button>
-      {isPending ? (
-        <div className="col-span-full text-center">Loading results...</div>
-      ) : error ? (
-        <div className="col-span-full text-center">{error.message}</div>
-      ) : (
-        <SingleVenueCard data={venue?.data} />
-      )}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-6 h-6 mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 12H5m7-7l-7 7 7 7"
+            />
+          </svg>
+          BACK
+        </button>
+        {isPending ? (
+          <div className="col-span-full text-center">Loading results...</div>
+        ) : error ? (
+          <div className="col-span-full text-center">{error.message}</div>
+        ) : (
+          <SingleVenueCard data={venue?.data} />
+        )}
+      </div>
     </main>
   );
 }

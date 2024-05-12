@@ -116,6 +116,17 @@ export default function MobileSearch({ venues }) {
     }
   }, [checkInDate, checkOutDate, setCheckOutDate]);
 
+  const guestSummary = Object.keys(guests)
+    .reduce((summary, key) => {
+      const count = guests[key];
+      if (count > 0) {
+        const name = key.charAt(0).toUpperCase() + key.slice(1);
+        summary.push(`${count} ${name}${count > 1 ? "" : ""}`);
+      }
+      return summary;
+    }, [])
+    .join(", ");
+
   return (
     <div>
       <button
@@ -126,7 +137,7 @@ export default function MobileSearch({ venues }) {
       >
         <span className="flex ml-4">
           <MdOutlineSearch className="my-auto" size={26} />
-          <h1 className=" ml-1 text-sm my-auto font-semibold  w-full">
+          <h1 className=" ml-1 text-l my-auto font-semibold  w-full">
             Where to?
           </h1>
         </span>
@@ -221,13 +232,22 @@ export default function MobileSearch({ venues }) {
                   onClick={toggleGuestsDropdown}
                   className="ml-2 w-full flex justify-start"
                 >
-                  Who?
+                  {guestSummary || "Who?"}
                 </button>
                 {isGuestsOpen && (
                   <div
                     ref={dropdownRef}
                     className="absolute top-0 w-full right-0 bg-cloud border border-deepsea rounded-3xl p-2 shadow-md"
                   >
+                    <button
+                      className="absolute top-0 right-3 mt-2 mr-2 text-white bg-tigerlily font-bold py-1 px-3 rounded-3xl hover:bg-deepsea "
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setGuestsOpen(false);
+                      }}
+                    >
+                      Done
+                    </button>
                     <h1 className="flex mt-1">
                       {" "}
                       <MdOutlinePermIdentity

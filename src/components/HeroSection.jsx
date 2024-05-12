@@ -19,7 +19,7 @@ export default function HeroSection({ venues }) {
           className="w-full h-full  object-cover object-right  "
         />
         <div className="absolute inset-x-0 bottom-0 mb-10 flex justify-center">
-          <span className="bg-white rounded-full hidden  pc:block">
+          <span className="bg-white rounded-full hidden w-full max-w-[50%]  pc:block">
             <SearchBar venues={venues} />
           </span>
           <span className="bg-white rounded-full max-w-[70%]   pc:hidden">

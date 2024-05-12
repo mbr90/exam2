@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { useSearchStoreState } from "../stores/useSearchStore";
 import { isVenueAvailable } from "../utils/venueAvailability";
 
-// TODO: Ensure that site doesn't break if venues doesn't have all variables
-
 export default function ShowVenues({ isPending, error, venues }) {
   const { location, checkInDate, checkOutDate, guests } = useSearchStoreState();
 

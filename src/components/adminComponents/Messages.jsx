@@ -18,7 +18,7 @@ export default function Messages() {
 
   return (
     <div className="flex flex-col w-full mx-auto max-w-[1636px]">
-      <h1 className=" text-deepsea font-header font-bold px-8 mb-4">
+      <h1 className=" text-deepsea font-header text-xl font-semibold px-8 mb-4">
         Latest Messages
       </h1>
       <div className=" w-full  grid grid-cols-4  gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-4 tablet:px-4 pc:mx-auto pc:px-8 max-w-[1636px]">

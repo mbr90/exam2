@@ -8,7 +8,7 @@ export default function Head() {
   const token = useToken();
   return (
     <div className=" hidden tablet:block pc:block bg-white shadow-md ">
-      <header className="flex justify-between items-center py-4 px-8  max-w-[1042px] mx-auto w-full">
+      <header className="flex justify-between items-center py-4 px-8  max-w-[1636px] mx-auto w-full">
         <Link to="/">
           <img
             src="/logo/Holidaze.svg"
@@ -21,9 +21,7 @@ export default function Head() {
             <li className="text-ash hover:text-deepsea">
               <NavLink to="/">HOME</NavLink>{" "}
             </li>
-            <li className="text-ash hover:text-deepsea">
-              <NavLink to="/result">VENUES</NavLink>{" "}
-            </li>
+
             {!token ? (
               <li className="text-ash hover:text-deepsea">
                 <NavLink to="/contact">CONTACT</NavLink>

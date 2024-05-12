@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Wrapper from "./components/layout/Wrapper.jsx";
 import Home from "./pages/home.jsx";
-import Hotels from "./pages/hotels.jsx";
 import Hotel from "./pages/hotel.jsx";
 import Contact from "./pages/contact.jsx";
 import Login from "./pages/login.jsx";
@@ -13,7 +12,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Wrapper />}>
         <Route index element={<Home />} />
-        <Route path="result" element={<Hotels />} />
         <Route path="venue/:id" element={<Hotel />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />

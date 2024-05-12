@@ -6,7 +6,7 @@ import { LuDot } from "react-icons/lu";
 const VenueCard = ({ venue }) => {
   const imageUrl = venue.attributes?.Media?.data?.[0]?.attributes?.url
     ? `${venue.attributes.Media.data[0].attributes.url}`
-    : "/images/default-image.jpg";
+    : "/images/hotel6.jpg";
 
   const formattedPrice = formatCurrency(venue.attributes?.Price || 0);
   const title = venue.attributes?.Title || "Default Venue";
@@ -16,7 +16,7 @@ const VenueCard = ({ venue }) => {
   const petFriendly = venue.attributes.PetFriendly;
 
   return (
-    <div className=" rounded-t-3xl   col-span-4 pc:col-span-3 flex flex-col pb-2 mx-2">
+    <div className=" rounded-t-3xl   col-span-4 pc:col-span-3 flex flex-col pb-2 mx-auto">
       <Link to={`/venue/${venue.id}`}>
         <img
           className="w-full h-[271px] object-cover rounded-t-3xl"
@@ -63,7 +63,7 @@ const VenueCard = ({ venue }) => {
             </li>
           </ul>
 
-          <p className="font-button text-charcoal text-sm h-40 overflow-hidden  pl-2">
+          <p className="font-button text-charcoal text-sm h-20 overflow-hidden  pl-2">
             {description}
           </p>
           <p className="text-tigerlily font-button mt-1 pl-2 pb-4">

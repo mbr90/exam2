@@ -7,7 +7,7 @@ export default function Wrapper() {
   return (
     <div className="flex flex-col min-h-screen">
       <Head />
-      <div className="flex-grow pb-16">
+      <div className="flex-grow pb-16 pc:pb-0">
         <Outlet />
       </div>
       <MobileNav />

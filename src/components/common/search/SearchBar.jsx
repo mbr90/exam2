@@ -106,10 +106,21 @@ export default function SearchBar({ venues }) {
     }
   }, [checkInDate, checkOutDate, setCheckOutDate]);
 
+  const guestSummary = Object.keys(guests)
+    .reduce((summary, key) => {
+      const count = guests[key];
+      if (count > 0) {
+        const name = key.charAt(0).toUpperCase() + key.slice(1);
+        summary.push(`${count} ${name}${count > 1 ? "" : ""}`);
+      }
+      return summary;
+    }, [])
+    .join(", ");
+
   return (
-    <ul className="flex flex-row gap-2 mx-auto  p-4 rounded-full text-charcoal">
-      <li className="flex my-auto clear-start hover:cursor-pointer relative">
-        <MdOutlineSearch />
+    <ul className="flex flex-row justify-around border bg-cloud border-deepsea rounded-full w-full py-2 px-4  text-deepsea font-button">
+      <li className="flex my-auto  hover:cursor-pointer relative">
+        <MdOutlineSearch size={20} className="ml-2 my-auto" />
         <input
           ref={inputRef}
           type="text"
@@ -118,16 +129,16 @@ export default function SearchBar({ venues }) {
           onChange={(e) => setLocation(e.target.value)}
           onFocus={() => setIsInputFocused(true)}
           onBlur={() => setTimeout(() => setIsInputFocused(false), 300)}
-          className="ml-2 outline-none cursor-pointer placeholder-charcoal"
+          className="ml-2 outline-none bg-cloud cursor-pointer placeholder-deepsea"
         />
 
         {isInputFocused && filterVenues.length > 0 && (
-          <ul className="absolute top-11 left-1/2 transform -translate-x-1/2 text-charcoal flex flex-col w-64 bg-white z-50 p-2">
+          <ul className="absolute top-10 rounded-3xl border-b border-deepsea   text-deepsea flex flex-col w-60 bg-cloud z-50 p-4">
             {filterVenues.map((loc) => (
               <li
                 key={loc}
                 onClick={() => handleLocationSelect(loc)}
-                className="p-2 hover:bg-gray-200 cursor-pointer"
+                className="p-2 hover:bg-deepsea hover:text-white hover:rounded-3xl cursor-pointer"
               >
                 {loc}
               </li>
@@ -135,39 +146,55 @@ export default function SearchBar({ venues }) {
           </ul>
         )}
       </li>
-      <li className="flex my-auto hover:cursor-pointer">
-        <MdOutlineDateRange />
-        <ReactDatePicker
-          selected={checkInDate}
-          onChange={(date) => setCheckInDate(date)}
-          minDate={new Date()}
-          dateFormat="dd/MM/yyyy"
-          placeholderText="Check-in"
-          className="cursor-pointer placeholder-charcoal"
-        />
+      <div className="h-6 my-auto  border border-midnightteal/40"></div>
+      <li className="flex  my-auto justify-around hover:cursor-pointer relative bg-cloud w-full max-w-40 rounded-full  py-3">
+        <span className="flex">
+          <MdOutlineDateRange size={20} className="my-auto" />
+          <ReactDatePicker
+            selected={checkInDate}
+            onChange={(date) => setCheckInDate(date)}
+            showPopperArrow={false}
+            minDate={new Date()}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Check-in"
+            popperPlacement="bottom-end"
+            className="ml-2 cursor-pointer placeholder-deepsea max-w-20 bg-cloud"
+          />
+        </span>
+      </li>{" "}
+      <div className="h-6 my-auto  border border-midnightteal/40"></div>{" "}
+      <li className="flex  my-auto justify-around hover:cursor-pointer relative bg-cloud w-full max-w-40   rounded-full  py-3">
+        <span className="flex">
+          <MdOutlineDateRange size={20} className="my-auto" />
+
+          <ReactDatePicker
+            selected={checkOutDate}
+            onChange={(date) => setCheckOutDate(date)}
+            showPopperArrow={false}
+            popperPlacement="bottom-start"
+            minDate={
+              checkInDate ? add(new Date(checkInDate), { days: 1 }) : new Date()
+            }
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Check-out"
+            className=" ml-2 cursor-pointer placeholder-deepsea max-w-20 bg-cloud"
+          />
+        </span>
       </li>
-      <li className=" flex my-auto hover:cursor-pointer">
-        <MdOutlineDateRange />
-        <ReactDatePicker
-          selected={checkOutDate}
-          onChange={(date) => setCheckOutDate(date)}
-          minDate={
-            checkInDate ? add(new Date(checkInDate), { days: 1 }) : new Date()
-          }
-          dateFormat="dd/MM/yyyy"
-          placeholderText="Check-out"
-          className=" flexml-2 outline-none cursor-pointer placeholder-charcoal"
-        />
-      </li>
+      <div className="h-6 my-auto  border border-midnightteal/40"></div>
       <li className="flex items-center relative">
-        <MdOutlinePermIdentity />
-        <button ref={buttonRef} onClick={toggleGuestsDropdown} className="ml-2">
-          Who?
+        <MdOutlinePermIdentity size={20} className="ml-2 my-auto" />
+        <button
+          ref={buttonRef}
+          onClick={toggleGuestsDropdown}
+          className="mx-2 w-full flex flex-row justify-start"
+        >
+          {guestSummary || "Who?"}
         </button>
         {isGuestsOpen && (
           <div
             ref={dropdownRef}
-            className="absolute top-full  bg-cloud border border-ash rounded-lg p-2 shadow-lg"
+            className="absolute top-14 rounded-3xl border-b border-deepsea   text-deepsea flex flex-col w-60 bg-cloud z-50 p-4"
           >
             {Object.keys(guests).map((type) => (
               <div
@@ -200,7 +227,7 @@ export default function SearchBar({ venues }) {
           </div>
         )}
       </li>
-      <li>
+      <li className="my-auto">
         <BackgroundButton text={"Clear"} onClick={() => clearSearchStore()} />
       </li>
     </ul>
