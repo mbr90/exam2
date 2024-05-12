@@ -13,14 +13,9 @@ const SingleVenueCard = ({ data }) => {
 
   const petFriendly = data.attributes.PetFriendly;
 
-  // const imageUrl =
-  //   images.length > 0
-  //     ? `http://localhost:1337${images[0].attributes.url}` // TODO: remove local host before going to prod
-  //     : "/images/default-image.jpg";
-
   const imageUrl =
     images.length > 0
-      ? `${images[0].attributes.url}` // TODO: remove local host before going to prod
+      ? `${images[0].attributes.url}`
       : "/images/default-image.jpg";
 
   const openModal = (index) => {
@@ -41,8 +36,6 @@ const SingleVenueCard = ({ data }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-
-  console.log(data);
 
   return (
     <div className="w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 tablet:px-4 pc:mx-auto pc:px-8">

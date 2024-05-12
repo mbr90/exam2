@@ -47,8 +47,11 @@ export default function LoginForm() {
       className="mt-4  mx-auto   w-[95%] tablet:w-96 "
       onSubmit={handleSubmit(onSubmit)}
     >
+      <h1 className="text-header text-3xl text-deepsea font-bold mx-auto w-48 my-10">
+        Admin login
+      </h1>
       <fieldset
-        className="flex flex-col gap-3 items-center justify-center w-full "
+        className="flex flex-col gap-3 items-center justify-center w-full font-button text-xl"
         disabled={loginMutation.isPending}
       >
         {loginMutation.isError && (
@@ -56,25 +59,26 @@ export default function LoginForm() {
         )}
 
         <input
-          placeholder="Username"
-          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl focus:outline-none focus:border-deepsea max-w-[360px]"
+          placeholder="Email address"
+          className="w-full px-4 py-3 border-2 placeholder:text-deepsea border-deepsea rounded-3xl focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("identifier")}
         />
         <p className="text-red-500 text-sm">{errors.identifier?.message}</p>
 
         <input
           placeholder="Password"
-          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
+          className="w-full px-4 py-3 border-2 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           type="password"
           {...register("password")}
         />
         <p className="text-red-500 text-sm">{errors.password?.message}</p>
-
-        <BackgroundButton
-          text={loginMutation.isPending ? "Logging in..." : "Login"}
-          type="submit"
-          disabled={loginMutation.isPending}
-        />
+        <span className="max-w-[360px] w-full">
+          <BackgroundButton
+            text={loginMutation.isPending ? "Logging in..." : "Login"}
+            type="submit"
+            disabled={loginMutation.isPending}
+          />
+        </span>
       </fieldset>
     </form>
   );

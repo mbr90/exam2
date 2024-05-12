@@ -8,7 +8,7 @@ const useAuthorizedFetch = (endpoint, queryKey) => {
   const { isPending, error, data } = useQuery({
     queryKey: [queryKey],
     queryFn: () => authorizedFetch(endpoint, token),
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 10,
   });
 
   return { data, isPending, error };

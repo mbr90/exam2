@@ -30,7 +30,7 @@ export default function ShowVenues({ isPending, error, venues }) {
   }
 
   return (
-    <div className="w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 pb-24 tablet:px-4 pc:mx-auto pc:px-8">
+    <div className=" grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 pb-24 tablet:px-4 pc:mx-auto pc:px-8 ">
       {filteredVenues.length > 0 ? (
         filteredVenues.map((venue) => (
           <VenueCard key={venue.id} venue={venue} />

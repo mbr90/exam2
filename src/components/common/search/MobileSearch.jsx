@@ -119,13 +119,16 @@ export default function MobileSearch({ venues }) {
   return (
     <div>
       <button
-        className="text-deepsea pl-2 pr-8 py-3 flex border w-64 max-w-96 border-deepsea rounded-full "
+        className="text-deepsea py-3 flex  jus border w-64   border-deepsea rounded-full "
         onClick={() => {
           openModal();
         }}
       >
-        <span className="flex">
-          <MdOutlineSearch size={24} /> <h1 className=" w-full">Where to?</h1>
+        <span className="flex ml-4">
+          <MdOutlineSearch className="my-auto" size={26} />
+          <h1 className=" ml-1 text-sm my-auto font-semibold  w-full">
+            Where to?
+          </h1>
         </span>
       </button>
       {isModalOpen && (
@@ -138,31 +141,31 @@ export default function MobileSearch({ venues }) {
                 onClick={() => closeModal()}
               />
             </span>
-            <ul className="flex flex-col gap-2 mx-auto mt-10  p-4 rounded-full text-deepsea w-full max-w-96">
+            <ul className="flex flex-col gap-3 mx-auto mt-10  p-4 rounded-full text-deepsea font-text font-semibold w-full text-sm max-w-96">
               <div className="w-full flex flex-col">
-                <li className="flex  my-auto  hover:cursor-pointer relative bg-cloud w-full rounded-full border border-deepsea p-3">
-                  <MdOutlineSearch className="my-auto" />
+                <li className="flex  my-auto  hover:cursor-pointer relative bg-cloud w-full rounded-full border border-deepsea p-3 shadow-md">
+                  <MdOutlineSearch size={20} className="ml-2 my-auto" />
                   <input
                     ref={inputRef}
                     type="text"
-                    placeholder="Where to"
+                    placeholder="Where to?"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     onFocus={() => setIsInputFocused(true)}
                     onBlur={() =>
                       setTimeout(() => setIsInputFocused(false), 300)
                     }
-                    className="ml-2 outline-none cursor-pointer placeholder-charcoal bg-cloud z-20"
+                    className="ml-2 outline-none cursor-pointer placeholder-deepsea bg-cloud z-20"
                   />
                 </li>
 
                 {isInputFocused && mobileVenues.length > 0 && (
-                  <ul className="transform -translate-y-14 text-deepsea flex flex-col w-full bg-cloud border border-deepsea rounded-3xl  p-2 pt-12">
+                  <ul className="transform -translate-y-14  flex flex-col w-full bg-cloud border border-deepsea rounded-3xl  py-2 pt-12 shadow-md">
                     {mobileVenues.map((loc) => (
                       <li
                         key={loc}
                         onClick={() => handleLocationSelect(loc)}
-                        className="p-3 hover:bg-gray-200 cursor-pointer ml-4"
+                        className="p-3 hover:bg-deepsea hover:text-white cursor-pointer rounded-3xl max-w-60 ml-8"
                       >
                         {loc}
                       </li>
@@ -170,25 +173,29 @@ export default function MobileSearch({ venues }) {
                   </ul>
                 )}
               </div>
-              <li className="flex  my-auto justify-between hover:cursor-pointer relative bg-white w-full rounded-full border border-deepsea p-3">
+              <li className="flex  my-auto justify-around hover:cursor-pointer relative bg-cloud w-full rounded-full border border-deepsea py-3 shadow-md">
                 <span className="flex">
-                  <MdOutlineDateRange className="my-auto" />
+                  <MdOutlineDateRange size={20} className="my-auto" />
                   <ReactDatePicker
                     selected={checkInDate}
                     onChange={(date) => setCheckInDate(date)}
+                    showPopperArrow={false}
                     minDate={new Date()}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Check-in"
-                    className="ml-2 cursor-pointer placeholder-charcoal max-w-24"
+                    popperPlacement="bottom-end"
+                    className="ml-2 cursor-pointer placeholder-deepsea max-w-20 bg-cloud"
                   />
                 </span>
-                <div className="h-6 my-auto  border border-charcoal"></div>
+                <div className="h-6 my-auto  border border-midnightteal/40"></div>
                 <span className="flex">
-                  <MdOutlineDateRange className="my-auto" />
+                  <MdOutlineDateRange size={20} className="my-auto" />
 
                   <ReactDatePicker
                     selected={checkOutDate}
                     onChange={(date) => setCheckOutDate(date)}
+                    showPopperArrow={false}
+                    popperPlacement="bottom-start"
                     minDate={
                       checkInDate
                         ? add(new Date(checkInDate), { days: 1 })
@@ -196,7 +203,7 @@ export default function MobileSearch({ venues }) {
                     }
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Check-out"
-                    className=" ml-2 cursor-pointer placeholder-charcoal max-w-24"
+                    className=" ml-2 cursor-pointer placeholder-deepsea max-w-20 bg-cloud"
                   />
                 </span>
               </li>
@@ -205,10 +212,10 @@ export default function MobileSearch({ venues }) {
                 className={`${
                   isGuestsOpen
                     ? "flex  my-auto  hover:cursor-pointer relative bg-cloud w-full rounded-full  border-deepsea p-3"
-                    : "flex  my-auto  hover:cursor-pointer relative bg-cloud w-full rounded-full border  border-deepsea p-3"
+                    : "flex  my-auto  hover:cursor-pointer relative bg-cloud w-full rounded-full border  border-deepsea p-3 shadow-md"
                 }`}
               >
-                <MdOutlinePermIdentity className="my-auto" />
+                <MdOutlinePermIdentity size={20} className="ml-2 my-auto" />
                 <button
                   ref={buttonRef}
                   onClick={toggleGuestsDropdown}
@@ -219,17 +226,20 @@ export default function MobileSearch({ venues }) {
                 {isGuestsOpen && (
                   <div
                     ref={dropdownRef}
-                    className="absolute top-0 w-full right-0 bg-cloud border border-deepsea rounded-3xl p-2 shadow-lg"
+                    className="absolute top-0 w-full right-0 bg-cloud border border-deepsea rounded-3xl p-2 shadow-md"
                   >
                     <h1 className="flex mt-1">
                       {" "}
-                      <MdOutlinePermIdentity className="my-auto mr-2" />
-                      Who?
+                      <MdOutlinePermIdentity
+                        size={20}
+                        className="my-auto ml-3"
+                      />
+                      <span className="ml-2"> Who?</span>
                     </h1>
                     {Object.keys(guests).map((type) => (
                       <div
                         key={type}
-                        className="flex justify-between items-center my-1"
+                        className="flex justify-between items-center ml-4 my-1"
                       >
                         <span>
                           {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -246,7 +256,7 @@ export default function MobileSearch({ venues }) {
                             </button>
                           </span>
 
-                          <span className="mx-2">{guests[type]}</span>
+                          <span className="mx-2 w-2">{guests[type]}</span>
                           <button
                             onClick={() =>
                               handleParticipantChange(type, "increment")
@@ -264,10 +274,12 @@ export default function MobileSearch({ venues }) {
                 )}
               </li>
               <li className=" flex w-full justify-between mt-4">
-                <BackgroundButton
-                  text={"Search"}
-                  onClick={() => closeModal()}
-                />
+                <span className="w-30">
+                  <BackgroundButton
+                    text={"Search"}
+                    onClick={() => closeModal()}
+                  />
+                </span>
                 <button
                   className="underline underline-offset-4 hover:font-bold w-24"
                   onClick={() => clearSearchStore()}

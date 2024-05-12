@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import BackgroundButton from "../common/buttons/BackgroundButton";
 
 export default function ErrorPageNotFound() {
   return (
@@ -12,7 +13,7 @@ export default function ErrorPageNotFound() {
       </Helmet>
       <h1 className="mx-auto">404: Page not found</h1>
       <Link className="mx-auto" to="/">
-        Home
+        <BackgroundButton text="Home" />
       </Link>
     </div>
   );
