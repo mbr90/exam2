@@ -10,12 +10,9 @@ export default {
       colors: {
         charcoal: "#23232C",
         deepsea: "#023C3E",
-        ash: "#9E9E9E",
+        midnightteal: "#1F5B58",
         cloud: "#F7F7F7",
-        bronze: "#8C7251",
-        sandstone: "#D6B387",
         tigerlily: "#E66435",
-        salmon: "#E9805A",
       },
       fontFamily: {
         header: ["Nunito", "sans-serif"],

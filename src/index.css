@@ -22,3 +22,42 @@ body {
 .bg-none {
   background-image: none !important;
 }
+
+
+.react-datepicker__month-container {
+  background-color: #F7F7F7 ;
+  font-family: "Montserrat", "sans-serif";
+  border: 1px solid  #023C3E;
+border-radius: 8px;
+
+}
+
+.react-datepicker__header {
+  background-color: #F7F7F7 ;
+  font-family: "Montserrat", "sans-serif";
+  border-radius: 8px;
+}
+
+.react-datepicker {
+  border-radius: 8px;
+}
+
+.react-datepicker__day, .react-datepicker__day-name, .react-datepicker__current-month {
+  color:#023C3E;
+}
+
+.react-datepicker__day:hover {
+  background-color: #1F5B58;
+  color:white
+}
+
+.react-datepicker__day--disabled {
+  color:#023c3e2e
+}
+
+.react-datepicker__day--selected {
+  background-color: #E66435 ;
+  color:white
+}
+
+/* #023C3E; */

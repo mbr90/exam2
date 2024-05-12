@@ -1,13 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { LuDot } from "react-icons/lu";
 
 const VenueCard = ({ venue }) => {
-  // TODO: remove localhost when going to production
-  // const imageUrl = venue.attributes?.Media?.data?.[0]?.attributes?.url
-  //   ? `http://localhost:1337${venue.attributes.Media.data[0].attributes.url}`
-  //   : "/images/default-image.jpg";
-
   const imageUrl = venue.attributes?.Media?.data?.[0]?.attributes?.url
     ? `${venue.attributes.Media.data[0].attributes.url}`
     : "/images/default-image.jpg";
@@ -17,11 +13,13 @@ const VenueCard = ({ venue }) => {
   const description =
     venue.attributes?.Description || "No description available.";
 
+  const petFriendly = venue.attributes.PetFriendly;
+
   return (
-    <div className="border rounded-lg shadow-md col-span-4 pc:col-span-3 flex flex-col pb-2">
+    <div className=" rounded-t-3xl   col-span-4 pc:col-span-3 flex flex-col pb-2 mx-2">
       <Link to={`/venue/${venue.id}`}>
         <img
-          className="w-full h-[271px] object-cover"
+          className="w-full h-[271px] object-cover rounded-t-3xl"
           src={imageUrl}
           alt={title}
           onError={(e) => {
@@ -29,11 +27,47 @@ const VenueCard = ({ venue }) => {
             e.target.src = "/images/hotel6.jpg";
           }}
         />
-        <div className="p-8">
-          <h1 className="text-xl font-header mb-2">{title}</h1>
-          <p className="font-text">{description}</p>
-          <p className="text-tigerlily font-button mt-2">
-            Price per night: {formattedPrice}
+        <div className="">
+          <h1 className="text-xl font-header mt-4 px-2 text-deepsea font-semibold">
+            {title}
+          </h1>
+          <ul className="flex flex-wrap  text-[12px] col-span-full  mx-auto w-full">
+            <li className=" flex h-8 font-header font-bold text-deepsea ">
+              <LuDot className="my-auto" size={20} />
+              <span className="my-auto">
+                {" "}
+                {venue.attributes.NumberOfBedrooms} BEDROOM
+              </span>
+            </li>
+            <li className="flex font-header font-bold text-deepsea ">
+              <LuDot className="my-auto" size={20} />
+              <span className="my-auto">
+                {" "}
+                {venue.attributes.NumberOfBeds} BEDS
+              </span>
+            </li>
+            <li className="flex font-header font-bold text-deepsea">
+              <LuDot className="my-auto" size={20} />
+              <span className="my-auto">
+                {" "}
+                {venue.attributes.NumberOfBathrooms} BATHS
+              </span>
+            </li>
+            <li className="flex font-header font-bold text-deepsea ">
+              {petFriendly && (
+                <>
+                  <LuDot className="my-auto" size={20} />
+                  <span className="my-auto"> PET-FRIENDLY </span>
+                </>
+              )}
+            </li>
+          </ul>
+
+          <p className="font-button text-charcoal text-sm h-40 overflow-hidden  pl-2">
+            {description}
+          </p>
+          <p className="text-tigerlily font-button mt-1 pl-2 pb-4">
+            {formattedPrice} <span className="text-charcoal">/Night</span>
           </p>
         </div>
       </Link>
@@ -48,6 +82,10 @@ VenueCard.propTypes = {
       Title: PropTypes.string,
       Description: PropTypes.string,
       Price: PropTypes.number,
+      NumberOfBedrooms: PropTypes.number,
+      NumberOfBeds: PropTypes.number,
+      NumberOfBathrooms: PropTypes.number,
+      PetFriendly: PropTypes.bool,
       Media: PropTypes.shape({
         data: PropTypes.arrayOf(
           PropTypes.shape({
@@ -58,7 +96,6 @@ VenueCard.propTypes = {
         ),
       }),
     }),
-  }),
+  }).isRequired,
 };
-
 export default VenueCard;

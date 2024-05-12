@@ -27,7 +27,9 @@ export default function Venues() {
 
   return (
     <div className=" w-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 grid-auto-row tablet:gap-6 pc:gap-8 px-2 tablet:px-4 pc:mx-auto pc:px-8 max-w-[1636px]">
-      <h1>List a venue</h1>
+      <h1 className="font-header text-deepsea font-semibold text-xl col-span-4 tablet:col-span-8 tablet:mx-auto">
+        List a venue
+      </h1>
       <VenueForm />
 
       {isPending ? (
@@ -36,14 +38,16 @@ export default function Venues() {
         <div className="col-span-full text-center">{error.message}</div>
       ) : (
         <div className="col-span-full grid grid-cols-4 gap-4 tablet:grid-cols-8 pc:grid-cols-12 my-12 border-t border-ash pt-8 ">
-          <h2 className="col-span-full">Delete Venues</h2>
+          <h2 className="col-span-full font-header text-deepsea font-semibold text-xl">
+            Delete Existing Venues
+          </h2>
           {venues.data.map((venue) => (
             <div
               key={venue.id}
               className=" col-span-4 pc:col-span-3 flex flex-col pb-2 relative"
             >
               <VenueCard venue={venue} />
-              <span className="absolute top-0 right-0 m-2 ">
+              <span className="absolute top-1 right-2 m-2 ">
                 <BorderButton
                   text="DELETE"
                   onClick={() => handleDelete(venue.id)}

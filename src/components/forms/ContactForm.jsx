@@ -47,7 +47,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <fieldset
-        className="flex flex-col gap-3 items-center justify-center"
+        className="flex flex-col gap-3 items-center justify-center font-button text-xl"
         disabled={contactMutation.isLoading}
       >
         {contactMutation.isError && (
@@ -56,38 +56,41 @@ export default function ContactForm() {
 
         <input
           placeholder="Name"
-          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
+          className="w-full px-4 py-3 border-2 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("name")}
         />
         <p className="text-red-500 text-sm">{errors.name?.message}</p>
 
         <input
           placeholder="Email"
-          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
+          className="w-full px-4 py-3 border-2 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("email")}
         />
         <p className="text-red-500 text-sm">{errors.email?.message}</p>
 
         <input
           placeholder="Subject"
-          className="w-full px-4 py-3 border placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
+          className="w-full px-4 py-3 border-2 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("subject")}
         />
         <p className="text-red-500 text-sm">{errors.subject?.message}</p>
 
         <textarea
           placeholder="Your message"
-          className="w-full px-4 py-3 border h-40 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
+          className="w-full px-4 py-3 border-2 h-40 placeholder:text-deepsea border-deepsea rounded-3xl  focus:outline-none focus:border-deepsea max-w-[360px]"
           {...register("message")}
         />
         <p className="text-red-500 text-sm">{errors.message?.message}</p>
 
-        <BackgroundButton
-          text={contactMutation.isLoading ? "Submitting..." : "Send Message"}
-          type="submit"
-          disabled={contactMutation.isLoading}
-          className="w-full py-2"
-        />
+        <span className="w-full max-w-[360px] my-5">
+          {" "}
+          <BackgroundButton
+            text={contactMutation.isLoading ? "Submitting..." : "Send Message"}
+            type="submit"
+            disabled={contactMutation.isLoading}
+            className="w-full py-2"
+          />
+        </span>
       </fieldset>
     </form>
   );

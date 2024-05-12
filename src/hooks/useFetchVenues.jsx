@@ -10,7 +10,7 @@ const useFetchVenues = () => {
   } = useQuery({
     queryKey: ["venues"],
     queryFn: () => fetchVenues(endpoint),
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 10,
   });
 
   return { venues, isPending, error };
