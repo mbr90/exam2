@@ -145,7 +145,7 @@ export default function VenueForm() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <fieldset
-        className="flex flex-col  pc:flex-row gap-3 items-center justify-center"
+        className="flex flex-col   gap-3 items-center justify-center"
         disabled={postVenueMutation.isLoading}
       >
         {postVenueMutation.isError && (
@@ -338,13 +338,13 @@ export default function VenueForm() {
         </div>
 
         <p className="text-red-500 text-sm">{errors.media?.message}</p>
-
-        <BackgroundButton
-          text={postVenueMutation.isLoading ? "LISTING..." : "LIST VENUE"}
-          type="submit"
-          disabled={postVenueMutation.isLoading}
-          className="w-full py-2"
-        />
+        <span className="w-full max-w-[360px]">
+          <BackgroundButton
+            text={postVenueMutation.isLoading ? "LISTING..." : "LIST VENUE"}
+            type="submit"
+            disabled={postVenueMutation.isLoading}
+          />
+        </span>
       </fieldset>
     </form>
   );

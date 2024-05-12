@@ -4,7 +4,7 @@ function BorderButton({ text, ...props }) {
   return (
     <button
       {...props}
-      className="bg-white text-deepsea font-semibold py-2 px-5 border border-tigerlily rounded-full hover:bg-tigerlily focus:outline-none focus:ring-2 focus:ring-tigerlily focus:ring-opacity-50 shadow-xl"
+      className="bg-white text-deepsea font-text py-2 px-10 border border-tigerlily rounded-full hover:bg-deepsea hover:border-deepsea hover:text-white focus:outline-none focus:ring-2 shadow-md"
     >
       {text}
     </button>
