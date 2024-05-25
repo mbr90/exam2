@@ -1,42 +1,84 @@
-A local tourism agency in Bergen is launching a new website called ‘Holidaze’ for visitors to the area to be able to find hotels, B&Bs and guesthouses, and for the accommodation owners to receive enquiries.
+# Holidaze
 
-The project requires you to create the visitor side of the website where users can search accommodation and make enquiries, as well as the administration side where properties can be added and enquiries managed.
+Holidaze is a venue booking website created as a final project exam at Noroff. This project utilizes a modern web development stack including Vite, Tailwind CSS for the frontend, and Strapi as the backend hosted on Railway.
 
-You will need to create an API to store the data for the establishments, enquiries and contact submissions. You can choose to use WordPress or Strapi as a Headless CMS, but it is very important that the API is deployed and publicly available. Please do not submit any files for your API. Only submit the website you have created.
-Requirements for the Website
-Visitor Side
+## Features
 
-    Homepage
-    Search bar typeahead (auto dropdown with hotel names that match what has been typed)
-    A results page with all hotels
-    The hotel specific page which displays all details about the hotel
-    An enquiry page either modal or separate page
-    A contact page (different to enquiry page) which goes to the admin for Holidaze
+- **Responsive Design**: Fully responsive design that works on mobile, tablets, and desktop.
+- **Dynamic Content**: Integration with Strapi CMS to manage and display venue data dynamically.
+- **Interactive UI**: Enhanced user interfaces with interactive elements for a seamless user experience.
+- **Booking Functionality**: Users can browse, search, and book venues directly through the website.
 
-Admin side
+## Technologies Used
 
-    Create a login section that makes use of JWT tokens
-    List of enquiries and new enquiries appear when user submits the form on the enquiry page
-    List of messages from contact form
-    The admin can create a new establishment
+- **Vite**: Utilized for building the frontend with efficient bundling and fast build times.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **Strapi**: Headless CMS for managing the venue data, hosted on Railway for seamless deployment and scalability.
+- **React**: Used to build the user interface with reusable components.
 
-Recommended Process
+## Setup and Installation
 
-Week 1 and 2: Planning and Design Week 3 to 6: Coding Week 7: Bug Fixing
-Level 1 Process
+1. **Clone the repository:**
+  ```
+   git clone https://github.com/your-username/holidaze.git
+   cd holidaze
+```
+2. **Install dependencies:**
+  ```
+   npm install
+```
+3. **Run the development server:**
+  ```
+ npm run dev
+```
+  
+This will start the Vite development server at `http://localhost:3000`.
 
-    Start by planning out the project.
-    Next begin your research of likely users and browse competitor websites for ideas.
-    Create a style guide
-    Build an Adobe XD prototype (or you can use Sketch or Figma).
-    Start coding.
-    Once you’ve finished development, start looking for bugs and ensure the site functions well on all viewports. Test the code on different devices. Because your API is public, the code shouldn’t rely on a local API.
-    Refactor your code.
-    Ask another student to look over your code and ask them if they can see how it might be better implemented. This is important to get an outside view on your code. Please attach this feedback to your report.
-    Add the login details for your admin side at the top of this README.md file so that it's easy for the marker to spot.
 
-Submission
 
-End of week 7: Report with link to website or a Github link and feedback from code review, and all files in a compressed ZIP. Login details added to the README.md.
-Resources
-Report template included in the repo.
+## License
+
+This project is open-sourced under the MIT license.
+
+## Acknowledgments
+
+- Thanks to Noroff for providing the educational environment and resources.
+- Tailwind CSS team for their fantastic framework that speeds up the development process.
+- Strapi community for their robust headless CMS and continuous support.
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <td>URL</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Gantt Chart</th>
+      <td>https://bronzed-gateway-a40.notion.site/885e6613f9ac4ed3b9a8b6eba251c345?v=a0bb205808b147eeb9e03efa22c5874a&pvs=4</td>
+    </tr>
+    <tr>
+      <th>Design Prototype</th>
+      <td>Mobile: https://xd.adobe.com/view/3cbe938e-7ee8-4ad8-a233-b65cdb3aa62d-69ed/screen/991f40ff-5b6b-4758-99f4-f9eec1ccfbac?fullscreen
+      </td>
+</tr>
+    <tr><td>Desktop: https://xd.adobe.com/view/3e686c05-68d8-4151-b0e5-f118b0d86b00-6b3b/?fullscreen</td></tr>
+    <tr>
+      <th>Style Guide</th>
+      <td>Added as file to the repo</td>
+    </tr>
+    <tr>
+      <th>Kanban Board</th>
+      <td>https://bronzed-gateway-a40.notion.site/885e6613f9ac4ed3b9a8b6eba251c345?v=a0bb205808b147eeb9e03efa22c5874a&pvs=4</td>
+    </tr>
+    <tr>
+      <th>Repository</th>
+      <td>https://github.com/Noroff-FEU-Assignments/project-exam-2-mbr90</td>
+    </tr>
+    <tr>
+      <th>Hosted Demo</th>
+      <td>https://frolicking-malasada-2368a1.netlify.app/</td>
+    </tr>
+  </tbody>
+</table>
