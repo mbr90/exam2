@@ -1,4 +1,5 @@
 # Holidaze
+![My Image](https://github.com/username/repository/blob/main/path/to/image.png](https://github.com/mbr90/exam2/blob/main/public/images/holidazeCard.jpg?raw=true)
 
 Holidaze is a venue booking website created as a final project exam at Noroff. This project utilizes a modern web development stack including Vite, Tailwind CSS for the frontend, and Strapi as the backend hosted on Railway.
 
