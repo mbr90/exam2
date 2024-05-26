@@ -20,8 +20,8 @@ Holidaze is a venue booking website created as a final project exam at Noroff. T
 
 1. **Clone the repository:**
   ```
-   git clone https://github.com/your-username/holidaze.git
-   cd holidaze
+   git clone https://github.com/mbr90/exam2
+
 ```
 2. **Install dependencies:**
   ```
